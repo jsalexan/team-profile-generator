@@ -27,6 +27,26 @@ const questions = [
         message: "What is the team role of this employee?",
         choices: ["Manager", "Engineer", "Intern"]
     },
-
 ]
-   
+
+const managerQuestions = 
+    {
+        type: "number",
+        name: "officeNumber",
+        message: "What is the Manager's office number?"
+    }
+
+const engineerQuestions = 
+    {
+        type: "input",
+        name: "gitHubName",
+        message: "What is the Engineer's GitHub username?"
+    }
+
+const internQuestions = 
+    {
+        type: "input",
+        name: "school",
+        message: "What school does the intern attend?"
+    }
+
