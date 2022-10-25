@@ -1,5 +1,7 @@
 const inquirer = require("inquirer");
 
+// TODO: Add validations
+
 const employeeRole = 
     {
         type: "input",
