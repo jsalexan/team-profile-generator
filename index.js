@@ -5,6 +5,8 @@ const manager = require("./lib/manager");
 const engineer = require("./lib/engineer");
 const intern = require("./lib/intern");
 
+let totalTeam = [];
+
 function startSurvey() {
  inquirer
     .prompt([
@@ -23,12 +25,7 @@ function startSurvey() {
             name: "email",
             message: "What is the email address for this employee?"
         },
-        {
-            type: "input",
-            name: "rawlist",
-            message: "What is the team role of this employee?",
-            choices: ["Manager", "Engineer", "Intern"]
-        },
+        
         
     ])
 
