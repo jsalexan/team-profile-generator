@@ -5,6 +5,11 @@ function createHTML(totalTeam) {
     let card = `
     <h1>${totalTeam[i].name}</h1>
     <p>${totalTeam[i].id}</p>
+    <p>${totalTeam[i].email}</p>
+    <p>${totalTeam[i].gitHubName}</p>
+    <p>${totalTeam[i].school}</p>
+    <p>${totalTeam[i].officeNumber}</p>
+
     `
     cards.push(card);
    }
