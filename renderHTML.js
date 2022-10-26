@@ -1,4 +1,4 @@
-const cards = [];
+let cards = [];
 
 const createManager = function (manager) {
    return ` 
@@ -51,7 +51,8 @@ const createIntern = function (intern) {
             `
          };
    
-  function createHTML(totalTeam) {
+    const createHTML = totalTeam => {
+   
 
       for (let i=0; i<totalTeam.length; i++) {
          
