@@ -1,23 +1,5 @@
+const renderHTML = require("./renderHTML");
 const cards = [];
-
-function createHTML(totalTeam) {
-
-   for (let i=0; i<totalTeam.length; i++) {
-      
-      if (totalTeam[i].getRole() === "Manager") {
-         const createManagerCard = generateManager(totalTeam[i])
-         cards.push(createManagerCard);
-      }
-      if (totalTeam[i].getRole() === "Engineer") {
-         const createEngineerCard = generateEngineer(totalTeam[i])
-         cards.push(createEngineerCard);
-      }
-      if (totalTeam[i].getRole() === "Intern") {
-         const createInternCard = generateIntern(totalTeam[i])
-         cards.push(createInternCard);    
-      }
-};
-};
 
 const createManager = function (manager) {
    return ` 
@@ -33,8 +15,7 @@ const createManager = function (manager) {
         <li class="list-group-item">${manager.getOfficeNumber()}</li>
       </ul>
     </div>
-       `
-      
+       `  
     };
    
     const createEngineer = function (engineer) {
@@ -71,8 +52,28 @@ const createManager = function (manager) {
             `
          };
    
-   const allCards = cards.join('');
 
+
+   function createHTML(totalTeam) {
+
+      for (let i=0; i<totalTeam.length; i++) {
+         
+         if (totalTeam[i].getRole() === "Manager") {
+            const createManagerCard = createManager(totalTeam[i])
+            cards.push(createManagerCard);
+         }
+         if (totalTeam[i].getRole() === "Engineer") {
+            const createEngineerCard = createEngineer(totalTeam[i])
+            cards.push(createEngineerCard);
+         }
+         if (totalTeam[i].getRole() === "Intern") {
+            const createInternCard = createIntern(totalTeam[i])
+            cards.push(createInternCard);    
+         }
+   };
+   };
+
+  
 
    const finalTeamPage = function (allCards) {   
    return`
@@ -92,4 +93,6 @@ const createManager = function (manager) {
    `
    };
 
-module.exports = createHTML
+   const allCards = cards.join(''); 
+
+module.exports = renderHTML
