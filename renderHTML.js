@@ -1,4 +1,3 @@
-const renderHTML = require("./renderHTML");
 const cards = [];
 
 const createManager = function (manager) {
@@ -18,14 +17,14 @@ const createManager = function (manager) {
        `  
     };
    
-    const createEngineer = function (engineer) {
-      return `
-        <div class="card" style="width: 18rem;">
-        <img src="./src/images/engineer.png" class="card-img-top" alt="...">
-        <div class="card-body">
+const createEngineer = function (engineer) {
+    return `
+      <div class="card" style="width: 18rem;">
+      <img src="./src/images/engineer.png" class="card-img-top" alt="...">
+      <div class="card-body">
           <h1 class="card-title">${engineer.getName()}</h1>
           <h2 class="card-text">Engineer</h2>
-        </div>
+      </div>
         <ul class="list-group list-group-flush">
           <li class="list-group-item">${engineer.getId()}</li>
           <li class="list-group-item">${engineer.getEmail()}</li>
@@ -35,26 +34,24 @@ const createManager = function (manager) {
          `
       };
 
-      const createIntern = function (intern) {
-         return `
-           <div class="card" style="width: 18rem;">
-           <img src="./src/images/intern.png" class="card-img-top" alt="Globe head with graduation cap">
-           <div class="card-body">
+const createIntern = function (intern) {
+    return `
+      <div class="card" style="width: 18rem;">
+          <img src="./src/images/intern.png" class="card-img-top" alt="Globe head with graduation cap">
+          <div class="card-body">
              <h1 class="card-title">${intern.getName()}</h1>
              <h2 class="card-text">Intern</h2>
-           </div>
-           <ul class="list-group list-group-flush">
+          </div>
+          <ul class="list-group list-group-flush">
              <li class="list-group-item">${intern.getId()}</li>
              <li class="list-group-item">${intern.getEmail()}</li>
              <li class="list-group-item">${intern.getSchool()}</li>
-           </ul>
-         </div>
+          </ul>
+      </div>
             `
          };
    
-
-
-   function createHTML(totalTeam) {
+  function createHTML(totalTeam) {
 
       for (let i=0; i<totalTeam.length; i++) {
          
@@ -70,12 +67,11 @@ const createManager = function (manager) {
             const createInternCard = createIntern(totalTeam[i])
             cards.push(createInternCard);    
          }
+         return cards;
    };
-   };
+   };  
 
-  
-
-   const finalTeamPage = function (allCards) {   
+   const finalTeamPage = function (cards) {   
    return`
    <!DOCTYPE html>
    <html lang="en">
@@ -87,12 +83,10 @@ const createManager = function (manager) {
    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 
    <body>
-   ${allCards}
+   ${cards}
    </body>
    </html>
    `
    };
 
-   const allCards = cards.join(''); 
-
-module.exports = renderHTML
+module.exports = { createHTML, finalTeamPage, createManager, createEngineer, createIntern, cards }

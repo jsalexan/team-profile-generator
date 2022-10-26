@@ -3,7 +3,7 @@ const fs = require("fs");
 const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
-const renderHTML = require("./renderHTML");
+const { createHTML, finalTeamPage, createManager, createEngineer, createIntern, cards } = require("./renderHTML");
 
 
 let totalTeam = [];
@@ -123,13 +123,14 @@ function addIntern() {
 };
 
 function makeProfile() {
-    const page = renderHTML(totalTeam)
+    const data = createHTML(totalTeam);
+    const page = finalTeamPage(cards);
     console.log("Here's your page!")
-    fs.writeFile("./dist/myTeam.html", page, (err) => {
+    fs.writeFile("./dist/myTeam.html", page, data, (err) => {
         if (err) console.log("Couldn't create file.", err)
     }
     )
-}
+};
 
 
 function addNewEmployee() {
