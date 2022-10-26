@@ -8,17 +8,8 @@ const testHTML = require("./testHTML");
 
 let totalTeam = [];
 
-const survey = {
-    employeeRole: [
-    {
-        type: "rawlist",
-        name: "role",
-        message: "What is the team role of this employee?",
-        choices: ["Manager", "Engineer", "Intern"]
-    }
-     ],
-
-     Manager: [
+function addManager() {
+    inquirer.prompt ([ 
     {
         type: "input",
         name: "name",
@@ -40,16 +31,23 @@ const survey = {
         type: "number",
         name: "officeNumber",
         message: "What is the Manager's office number?"
-    },
-    {
-        type: "rawlist",
-        name: "addEmployee",
-        message: "Would you like to add another employee?",
-        choices: ["Yes." , "No, my team is complete."]
     }
-],
+])
+        .then(function(answers){
+            let newManager = new Manager 
+            (
+            answers.name,
+            answers.id,
+            answers.email,
+            answers.officeNumber
+            )
+            totalTeam.push(newManager);
+            addNewEmployee();
+            });
+};
 
-    Engineer: [
+function addEngineer() {
+    inquirer.prompt ([ 
     {
         type: "input",
         name: "name",
@@ -72,15 +70,22 @@ const survey = {
         name: "gitHubName",
         message: "What is the Engineer's GitHub username?"
     },
-    {
-        type: "rawlist",
-        name: "addEmployee",
-        message: "Would you like to add another employee?",
-        choices: ["Yes." , "No, my team is complete."]
-    }
-],
+])
+    .then(function(answers){
+        let newEngineer = new Engineer
+        (
+        answers.name,
+        answers.id,
+        answers.email,
+        answers.gitHubName
+        )
+        totalTeam.push(newEngineer);
+        addNewEmployee();
+        });
+};
 
-Intern: [
+function addIntern() {
+    inquirer.prompt ([ 
     {
         type: "input",
         name: "name",
@@ -103,70 +108,47 @@ Intern: [
         name: "school",
         message: "What school does the Intern attend?"
     },
-    {
-        type: "rawlist",
-        name: "addEmployee",
-        message: "Would you like to add another employee?",
-        choices: ["Yes." , "No, my team is complete."]
-    }
-]
-};
-
-function addNewEmployee() {
-    inquirer.prompt(survey.employeeRole)
-    .then(function(answers){
-    console.log(answers.employeeRole);
-
-    if (answers.employeeRole === "Manager") {
-        inquirer.prompt(survey.Manager)
+])
         .then(function(answers){
-            let newManager = new Manager 
+            let newIntern = new Intern
             (
             answers.name,
             answers.id,
             answers.email,
-            answers.officeNumber
-            )
-        totalTeam.push(newManager);
-           
-        });
-    }  
-    if (answers.employeeRole === "Engineer") {
-        inquirer.prompt(survey.Engineer)
-        .then(function(answers){
-            let newEngineer = Engineer 
-            (
-                answers.name,
-                answers.id,
-                answers.email,
-                answers.gitHubName
-            );
-            totalTeam.push(newEngineer);
-        if (answers.addEmployee === "Yes.") {
-            addNewEmployee();
-        } else {
-            makeProfile();
-        }                  
-        });
-    
-    } else if (answers.employeeRole === "Intern") {
-        inquirer.prompt(survey.Intern)
-        .then(function(answers){
-            let newIntern = Intern 
-            (
-                answers.name,
-                answers.id,
-                answers.email,
-                answers.school
+            answers.school
             )
             totalTeam.push(newIntern);
-        if (answers.addEmployee == "Yes.") {
             addNewEmployee();
-        } else {
-            makeProfile();
-        }                  
-        });
-    };
+            });
+};
+
+
+
+function addNewEmployee() {
+    inquirer.prompt([
+        {
+        type: "rawlist",
+        name: "role",
+        message: "Would you like to add an employee to your team?",
+        choices: ["Manager", "Engineer", "Intern", "My team is complete!"]
+    }
+    ])
+    .then(function(answers){
+        switch (answers.role) {
+            case "Manager":
+                addManager();
+                break;
+            case "Engineer":
+                addEngineer();
+                break;
+            case "Intern":
+                addIntern();
+                break;
+            default:
+                makeProfile();
+        }
+    })
+    
     
 function makeProfile() {
     const page = testHTML(totalTeam)
@@ -176,7 +158,8 @@ function makeProfile() {
     }
     )
 }
-})}    
+}   
+
 addNewEmployee();
 
 
