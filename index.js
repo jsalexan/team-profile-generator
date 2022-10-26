@@ -122,6 +122,14 @@ function addIntern() {
             });
 };
 
+function makeProfile() {
+    const page = testHTML(totalTeam)
+    console.log("Here's your page!", page)
+    fs.writeFile("./dist/myTeam.html", page, (err) => {
+        if (err) console.log("Couldn't create file.", err)
+    }
+    )
+};
 
 
 function addNewEmployee() {
@@ -148,17 +156,9 @@ function addNewEmployee() {
                 makeProfile();
         }
     })
+}; 
     
-    
-function makeProfile() {
-    const page = testHTML(totalTeam)
-    console.log("Here's your page!", page)
-    fs.writeFile("./dist/myTeam.html", page, (err) => {
-        if (err) console.log("Couldn't create file.", err)
-    }
-    )
-}
-}   
+  
 
 addNewEmployee();
 

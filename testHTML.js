@@ -1,59 +1,81 @@
+const cards = [];
+
 function createHTML(totalTeam) {
-   let cards = []
-   for (let i=0; i<totalTeam.length; i++)
-   {
-    let managerCard = `
+
+   for (let i=0; i<totalTeam.length; i++) {
+      
+      if (totalTeam[i].getRole() === "Manager") {
+         const createManagerCard = generateManager(totalTeam[i])
+         cards.push(createManagerCard);
+      }
+      if (totalTeam[i].getRole() === "Engineer") {
+         const createEngineerCard = generateEngineer(totalTeam[i])
+         cards.push(createEngineerCard);
+      }
+      if (totalTeam[i].getRole() === "Intern") {
+         const createInternCard = generateIntern(totalTeam[i])
+         cards.push(createInternCard);    
+      }
+};
+};
+
+const createManager = function (manager) {
+   return ` 
       <div class="card" style="width: 18rem;">
       <img src="./src/images/manager.png" class="card-img-top" alt="...">
       <div class="card-body">
-        <h1 class="card-title">${totalTeam.getName()}</h1>
-        <h2 class="card-text">${totalTeam.getRole()}</h2>
+        <h1 class="card-title">${manager.getName()}</h1>
+        <h2 class="card-text">Manager</h2>
       </div>
       <ul class="list-group list-group-flush">
-        <li class="list-group-item">${totalTeam.getId()}</li>
-        <li class="list-group-item">${totalTeam.getEmail()}</li>
-        <li class="list-group-item">${totalTeam.getOfficeNumber()}</li>
+        <li class="list-group-item">${manager.getId()}</li>
+        <li class="list-group-item">${manager.getEmail()}</li>
+        <li class="list-group-item">${manager.getOfficeNumber()}</li>
       </ul>
     </div>
        `
-       cards.push(employeeCard);
-    }
-   };
-    {
-      let engineerCard = `
+      
+    };
+   
+    const createEngineer = function (engineer) {
+      return `
         <div class="card" style="width: 18rem;">
         <img src="./src/images/engineer.png" class="card-img-top" alt="...">
         <div class="card-body">
-          <h1 class="card-title">${totalTeam.getName()}</h1>
-          <h2 class="card-text">${totalTeam.getRole()}</h2>
+          <h1 class="card-title">${engineer.getName()}</h1>
+          <h2 class="card-text">Engineer</h2>
         </div>
         <ul class="list-group list-group-flush">
-          <li class="list-group-item">${totalTeam.getId()}</li>
-          <li class="list-group-item">${totalTeam.getEmail()}</li>
-          <li class="list-group-item">${totalTeam.getGitHub()}</li>
+          <li class="list-group-item">${engineer.getId()}</li>
+          <li class="list-group-item">${engineer.getEmail()}</li>
+          <li class="list-group-item">${engineer.getGitHub()}</li>
         </ul>
       </div>
          `
-      }
-      {
-         let internCard = `
+      };
+
+      const createIntern = function (intern) {
+         return `
            <div class="card" style="width: 18rem;">
            <img src="./src/images/intern.png" class="card-img-top" alt="Globe head with graduation cap">
            <div class="card-body">
-             <h1 class="card-title">${totalTeam.getName()}</h1>
-             <h2 class="card-text">${totalTeam.getRole()}</h2>
+             <h1 class="card-title">${intern.getName()}</h1>
+             <h2 class="card-text">Intern</h2>
            </div>
            <ul class="list-group list-group-flush">
-             <li class="list-group-item">${totalTeam.getId()}</li>
-             <li class="list-group-item">${totalTeam.getEmail()}</li>
-             <li class="list-group-item">${totalTeam.getSchool()}</li>
+             <li class="list-group-item">${intern.getId()}</li>
+             <li class="list-group-item">${intern.getEmail()}</li>
+             <li class="list-group-item">${intern.getSchool()}</li>
            </ul>
          </div>
             `
-         }
-   createHTML();
+         };
+   
+   const allCards = cards.join('');
 
-   let html = `
+
+   const finalTeamPage = function (allCards) {   
+   return`
    <!DOCTYPE html>
    <html lang="en">
 
@@ -64,11 +86,10 @@ function createHTML(totalTeam) {
    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 
    <body>
-   ${cards}
+   ${allCards}
    </body>
    </html>
    `
-   return html
-
+   };
 
 module.exports = createHTML
