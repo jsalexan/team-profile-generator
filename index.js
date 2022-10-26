@@ -125,7 +125,7 @@ function addIntern() {
 function makeProfile() {
     const data = createHTML(totalTeam);
     const page = finalTeamPage(cards);
-    console.log("Here's your page!")
+    console.log("Here's your page!", totalTeam)
     fs.writeFile("./dist/myTeam.html", page, data, (err) => {
         if (err) console.log("Couldn't create file.", err)
     }
