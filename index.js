@@ -5,9 +5,10 @@ const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
 const { createHTML, finalTeamPage, createManager, createEngineer, createIntern, cards } = require("./renderHTML");
 
-
+// Creates empty array that will hold the user responses.
 let totalTeam = [];
 
+// To create a new manager.
 function addManager() {
     inquirer.prompt ([ 
     {
@@ -46,6 +47,7 @@ function addManager() {
             });
 };
 
+// To create a new engineer
 function addEngineer() {
     inquirer.prompt ([ 
     {
@@ -84,6 +86,7 @@ function addEngineer() {
         });
 };
 
+// To create a new intern.
 function addIntern() {
     inquirer.prompt ([ 
     {
@@ -122,6 +125,7 @@ function addIntern() {
             });
 };
 
+// Writes file
 function makeProfile() {
     const data = createHTML(totalTeam);
     const page = finalTeamPage(cards);
@@ -132,7 +136,7 @@ function makeProfile() {
     )
 };
 
-
+// Main function to add a new employee, using switch to jump through the various options. 
 function addNewEmployee() {
     inquirer.prompt([
         {

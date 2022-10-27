@@ -1,6 +1,7 @@
+// Empty array that will receive the cards for the various roles.
 let cards = [];
 
-
+// Creates the HTML specific to the Manager role.
 const createManager = function (manager) {
    return ` 
       <div class="card" style="width: 18rem;">
@@ -17,7 +18,8 @@ const createManager = function (manager) {
     </div>
        `  
     };
-   
+ 
+// Creates the HTML specific to the Engineer role.
 const createEngineer = function (engineer) {
     return `
       <div class="card" style="width: 18rem;">
@@ -35,6 +37,7 @@ const createEngineer = function (engineer) {
          `
       };
 
+// Creates the HTML specific to the Intern role.
 const createIntern = function (intern) {
     return `
       <div class="card" style="width: 18rem;">
@@ -51,7 +54,8 @@ const createIntern = function (intern) {
       </div>
             `
          };
-   
+
+// Loops through the user response array (totalTeam) and creates cards for the various roles, pushing them to "cards"
     const createHTML = totalTeam => {
       for (let i=0; i<totalTeam.length; i++) {
          
@@ -70,8 +74,10 @@ const createIntern = function (intern) {
    };
    return cards
    };  
-  
+
+// Creates the full HTML team page with the team cards.
    const finalTeamPage = function (cards) {   
+      const htmlString = cards.join('');
    return `
    <html lang="en">
 
@@ -83,12 +89,12 @@ const createIntern = function (intern) {
        <body>
            <main class="container">
                <section class="row">
-                   <div class="col-12 jumbotron mb-3">
-                       <h2>Our Team</h2>  
+               <div class="col-12 jumbotron mb-3 text-bg-primary p-3 text-center">
+                       <h1>Our Team</h1>  
                    </div>
 
                <section class="row justify-content-around">
-                   ${cards.map(card => card)}
+                   ${htmlString}
                </section>
                       
            </main>     
