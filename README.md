@@ -28,7 +28,7 @@
   <br><br>
 
   ## [Installation](#table-of-contents)
-  The website is hosted by GitHub pages. <br>
+  There is no website for this application. You may view a demonstration video at: _coming soon_.<br>
   <br>
   The repository is on GitHub: [GitHub repository for Team Profile Generator.](https://github.com/jsalexan/team-profile-generator) <br>
   There you will find following file types: 
@@ -38,11 +38,11 @@
 
 ## [Usage](#table-of-contents)
   The website (link above) was created to be used on the following devices:<br> 
-   desktop.<br><br>
+   _Desktop_<br><br>
   <br>
 
   ![Data Collection](./src/images/Node%20prompts.png)
-  ![Tests](./src/images/tests.png)
+  <br><br>
   ![Cards](./src/images/Final%20Team.png)
   <br><br>
 
@@ -56,9 +56,12 @@
   https://www.w3resource.com/jest/using-matchers.php<br>
   https://www.geeksforgeeks.org/node-js-path-resolve-method/<br>
   https://www.freecodecamp.org/news/javascript-switch-case-js-switch-statement-example/
-  <br><br>
+  https://www.npmjs.com/package/inquirer
+  https://jestjs.io/docs/getting-started
+  https://github.com/jsalexan/readme-gen
 
-  
+  <br>
+
   ## [License](#table-of-contents)
   **MIT** Copyright 2022, Jennifer Alexander<br>
   [Information about your MIT license.](https://opensource.org/licenses/MIT)
@@ -66,11 +69,13 @@
   
 
   ## [How to Contribute](#table-of-contents)
-  I do not to have collaborators at this time. Thanks for your interest!
+  I do not wish to have collaborators at this time. Thanks for your interest!
   <br><br>
 
   ## [Tests](#table-of-contents)
-  Coming soon...
+  There are several tests created to proof the methods created for each Employee class. For example, this one checks to be sure the Employee was created with the correct information: 
+  ![Tests](./src/images/tests.png)
+  The tests can be found in the tests folder. To run them, open an integrated terminal and type "npm test". The results can be seen in this screenshot. Also, be sure you have Jest installed.
   <br><br>
 
   ## [Questions](#table-of-contents)
