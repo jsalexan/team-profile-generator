@@ -1,5 +1,6 @@
 let cards = [];
 
+
 const createManager = function (manager) {
    return ` 
       <div class="card" style="width: 18rem;">
@@ -52,8 +53,6 @@ const createIntern = function (intern) {
          };
    
     const createHTML = totalTeam => {
-   
-
       for (let i=0; i<totalTeam.length; i++) {
          
          if (totalTeam[i].getRole() === "Manager") {
@@ -67,13 +66,13 @@ const createIntern = function (intern) {
          if (totalTeam[i].getRole() === "Intern") {
             const createInternCard = createIntern(totalTeam[i])
             cards.push(createInternCard);    
-         }
-         return cards;
+         }     
    };
+   return cards
    };  
-
+  
    const finalTeamPage = function (cards) {   
-   return`
+   return `
    <html lang="en">
 
    <head>
@@ -89,7 +88,7 @@ const createIntern = function (intern) {
                    </div>
 
                <section class="row justify-content-around">
-                   ${cards}
+                   ${cards.map(card => card)}
                </section>
                       
            </main>     
