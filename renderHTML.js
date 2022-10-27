@@ -79,25 +79,24 @@ const createIntern = function (intern) {
    const finalTeamPage = function (cards) {   
       const htmlString = cards.join('');
    return `
-   <html lang="en">
+<html lang="en">
 
    <head>
        <meta charset="UTF-8"/>
        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
        <title>Our Team</title>
        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+       <link rel="stylesheet" href="style.css">
        <body>
-           <main class="container">
-               <section class="row">
-               <div class="col-12 jumbotron mb-3 text-bg-primary p-3 text-center">
-                       <h1>Our Team</h1>  
-                   </div>
-
+         <header class="col-12 jumbotron mb-3 text-bg-primary p-3">
+               <h1>Our Team</h1>  
+         </header>
+         
+         <main class="container">            
                <section class="row justify-content-around">
                    ${htmlString}
-               </section>
-                      
-           </main>     
+               </section>                      
+         </main>     
        </body>       
    </head>
 </html>
