@@ -41,11 +41,13 @@
    desktop.<br><br>
   <br>
 
-  ![Screen capture.] Coming soon...
+  ![Data Collection](./src/images/Node%20prompts.png)
+  ![Tests](./src/images/tests.png)
+  ![Cards](./src/images/Final%20Team.png)
   <br><br>
 
   ## [Credits](#table-of-contents) 
-  I am grateful for the help of the Panic Problems study (support) group. I also received very helpful assistance from Ben Christiansen and Josh Greiff through the AskBCS Learning Assistant feature. Last, I am thankful for the assistance of my UW Full Stack Web Development Bootcamp instructors, teacher assistants, and fellow students.
+  I am grateful for the help of the Panic Problems study (support) group. I also received very helpful assistance from Ben Christiansen and Josh Greiff through the AskBCS Learning Assistant feature and Mark Carlson, our class substitute. Last, I am thankful for the assistance of my **UW Full Stack Web Development Bootcamp** instructors, teacher assistants, and fellow students.
   <br><br>
 
   **Third Party References and Tutorials used include:** 
